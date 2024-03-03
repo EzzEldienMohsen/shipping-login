@@ -4,6 +4,9 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      inder: ['inder'],
+    },
     extend: {},
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],

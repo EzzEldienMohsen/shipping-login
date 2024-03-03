@@ -1,10 +1,12 @@
 import React from 'react';
 import FormRow from './components/FormRow';
+import { logo } from './assets';
 
 const initialValues = {
   name: '',
   email: '',
   password: '',
+  isMember: false,
 };
 function App() {
   const [values, setValues] = React.useState(initialValues);
@@ -18,39 +20,73 @@ function App() {
     console.log(values);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <h1>this is the title</h1>
-      {/* NAME FIELD */}
+    <div className="w-full gradient box-border flex flex-col justify-center items-center h-[800px] ">
+      <div className="flex flex-col justify-center items-center bg-white h-[70%] rounded-md shadow-xl">
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col justify-center items-center w-96 l  p-10 lg:w-[30vw]"
+        >
+          {/* LOGO AND NAME */}
+          <div className="flex flex-col justify-center items-center mb-12">
+            <img src={logo} alt="truck" className="w-16 h-16 lg:w-24 lg:h-24" />
+            <h1 className="font-inder uppercase font-bold tracking-wide">
+              company name
+            </h1>
+          </div>
+          {/* NAME FIELD */}
 
-      <FormRow
-        name="name"
-        type="text"
-        label="name"
-        value={values.name}
-        handleChange={handleChange}
-      />
+          {!values.isMember && (
+            <FormRow
+              name="name"
+              type="text"
+              label="name"
+              value={values.name}
+              handleChange={handleChange}
+            />
+          )}
 
-      {/* EMAIL */}
-      <FormRow
-        name="email"
-        type="email"
-        label="email"
-        value={values.email}
-        handleChange={handleChange}
-      />
-      {/* PASSWORD */}
-      <FormRow
-        name="password"
-        type="password"
-        label="password"
-        value={values.password}
-        handleChange={handleChange}
-      />
-      {/* SUBMIT BUTTON */}
-      <button type="submit" className="btn btn-block">
-        submit
-      </button>
-    </form>
+          {/* EMAIL */}
+          <FormRow
+            name="email"
+            type="email"
+            label="email"
+            value={values.email}
+            handleChange={handleChange}
+          />
+          {/* PASSWORD */}
+          <FormRow
+            name="password"
+            type="password"
+            label="password"
+            value={values.password}
+            handleChange={handleChange}
+          />
+          {/* Forget and remember */}
+          <div className="cursor-pointer flex items-end justify-end mb-2 w-full -mt-2">
+            <h3 className="text-md font-semibold capitalize ">
+              forget password?
+            </h3>
+          </div>
+          <div className="flex justify-start items-start w-full">
+            <label className="cursor-pointer label">
+              <input
+                type="checkbox"
+                defaultChecked
+                className="checkbox checkbox-warning border-black  [--chkbg:theme(colors.green.600)] [--chkfg:white] mr-3"
+              />
+              <span className="label-text">Remember me</span>
+            </label>
+          </div>
+          {/* SUBMIT BUTTON */}
+          <button
+            type="submit"
+            className="btn btn-block bg-[#4ABC56] text-white uppercase  md:w-[25vw] mb-4"
+          >
+            login
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 
