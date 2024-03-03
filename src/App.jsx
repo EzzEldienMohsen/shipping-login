@@ -5,7 +5,6 @@ const initialValues = {
   name: '',
   email: '',
   password: '',
-  isMember: true,
 };
 function App() {
   const [values, setValues] = React.useState(initialValues);
