@@ -7,9 +7,19 @@ const initialValues = {
   email: '',
   password: '',
   isMember: false,
+  checked: true,
 };
 function App() {
-  const [values, setValues] = React.useState(initialValues);
+  const val = JSON.parse(localStorage.getItem('user')) || initialValues;
+  const [values, setValues] = React.useState(val);
+  const handleChecked = (e) => {
+    const name = e.target.name;
+    const value = e.target.checked;
+    setValues({ ...values, [name]: value });
+    if (values.checked) {
+      localStorage.setItem('user', JSON.stringify(values));
+    }
+  };
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -71,7 +81,9 @@ function App() {
             <label className="cursor-pointer label">
               <input
                 type="checkbox"
+                name="checked"
                 defaultChecked
+                onChange={handleChecked}
                 className="checkbox checkbox-warning border-black  [--chkbg:theme(colors.green.600)] [--chkfg:white] mr-3"
               />
               <span className="label-text">Remember me</span>
