@@ -21,7 +21,7 @@ function App() {
   };
   return (
     <div className="w-full gradient box-border flex flex-col justify-center items-center h-[800px] ">
-      <div className="flex flex-col justify-center items-center bg-white h-[70%] rounded-md shadow-xl">
+      <div className="flex flex-col justify-center items-center bg-white h-[70%] rounded-md shadow-2xl">
         <form
           onSubmit={onSubmit}
           className="flex flex-col justify-center items-center w-96 l  p-10 lg:w-[30vw]"
@@ -62,7 +62,7 @@ function App() {
             handleChange={handleChange}
           />
           {/* Forget and remember */}
-          <div className="cursor-pointer flex items-end justify-end mb-2 w-full -mt-2">
+          <div className="cursor-pointer flex items-end justify-end mb-2 w-full -mt-3">
             <h3 className="text-md font-semibold capitalize ">
               forget password?
             </h3>
