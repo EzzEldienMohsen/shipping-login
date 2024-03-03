@@ -2,7 +2,7 @@
 const FormRow = ({ name, label, type, value, handleChange }) => {
   return (
     <div className="flex flex-col justify-center items-start w-[100%] md:w-[25vw]">
-      <label className="mb-2" htmlFor={name}>
+      <label className="mb-2 capitalize" htmlFor={name}>
         {label || name}
       </label>
       <input
